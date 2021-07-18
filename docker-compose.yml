@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  api:
+    container_name: fastapicrud # Name can be anything
+    restart: always
+    build: ./app
+    ports:
+      # - "8080:80"
+      - "8080:5050"
+    # command: gunicorn -w 1 -b :8080 app:app
+    ##working network mode
+    network_mode: "host"
+    ##bridge cannot be used when accessing local host
+    # network_mode: "bridge"
+    # extra_hosts:
+    #   - "localhost:192.168.1.7"
+
+#   db:
+#     image: postgres:12.0-alpine
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data/
+#     environment:
+#       - POSTGRES_USER=Bardock123$
+#       - POSTGRES_PASSWORD=password
+#       - POSTGRES_DB=nudges
+#     expose: 
+#       - 5432
+
+# volumes:
+#   postgres_data:
